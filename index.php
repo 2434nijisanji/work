@@ -2,7 +2,7 @@
 
 <head>
     <title>登陸</title>
-    <meta charset="UTF-8">
+    <meta charset = "UTF-8">
     <style>
         body {
             height: 100%;
