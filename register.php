@@ -3,7 +3,6 @@
 <head>
     <title>註冊</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./css/index1.css">
     <style>
         body {
             height: 100%;
@@ -11,39 +10,39 @@
     </style>
 </head>
 
-<body style="background: url(./images/timg7.jpg)">
-    <div class="index_01">
-        <table style="width: 100%;height:100%;">
+<body>
+    <div class = "index_01">
+        <table style = "width: 100%; height: 100%; ">
             <tr>
-                <td align="center">
-                    <form action="doregister.php " name="dl" method="post">
-                        <table align="center" width=350 height=230; style="font-family:宋體;font-size:25px;">
-                            <tr align="center">
-                                <td colspan="2" style="font-size:35px;">註冊使用者</td>
+                <td>
+                    <form action = "doregister.php " name = "dl" method = "post">
+                        <table width = 350 height = 230; style = "font-family: 宋體; font-size: 25px; ">
+                            <tr>
+                                <td colspan = "2" style = "font-size: 35px; ">註冊使用者</td>
                             </tr>
                             <tr>
-                                <td align="center">使用者名稱</td>
+                                <td>使用者名稱</td>
                                 <td>
-                                    <input type="name" maxlength="20" name="id" placeholder="手機號/郵箱" style="width:180px;font-size:20px;border-radius: 8px; ">
+                                    <input type = "name" maxlength = "20" name = "id" placeholder = "請輸入暱稱" style = "width: 180px; font-size: 20px; border-radius: 8px;">
                                 </td>
                             </tr>
                             <tr>
-                                <td align="center">密 碼</td>
+                                <td>密 碼</td>
                                 <td>
-                                    <input name="password" type="password" maxlength="16" placeholder="請輸入密碼" style="width:180px;font-size:20px;border-radius: 8px; ">
+                                    <input name = "password" type = "password" maxlength = "16" placeholder = "請輸入密碼" style = "width: 180px; font-size: 20px; border-radius: 8px">
                                 </td>
                             </tr>
                             <tr>
-                                <td align="center">Again</td>
+                                <td>Again</td>
                                 <td>
-                                    <input name="confirmPassword" type="password" maxlength="16" placeholder="請再次輸入密碼" style="width:180px;font-size:20px;border-radius: 8px; ">
+                                    <input name = "confirmPassword" type = "password" maxlength = "16" placeholder = "請再次輸入密碼" style = "width: 180px; font-size: 20px; border-radius: 8px">
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" align="center">
-                                    <input type="button" name='zu' value='登陸' onclick="location.href='index.php'" style="font-size:17px;border-radius: 12px;" class="btn" />
-                                    <input type="reset" name="zu" value="重置" style="font-size:17px;border-radius: 12px;" class="btn">
-                                    <input type="submit" name="zu" value="註冊" style="font-size:17px;border-radius:12px;" class="btn" />
+                                <td colspan = "2">
+                                    <input type = "button" name = 'zu' value = '登入' onclick = "location.href = 'index.php'" class = "btn">
+                                    <input type = "reset" name = "zu" value = "重置" class = "btn">
+                                    <input type = "submit" name = "zu" value = "註冊" class = "btn">
                                 </td>
                             </tr>
                         </table>

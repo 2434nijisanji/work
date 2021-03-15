@@ -9,17 +9,16 @@
     require_once "connet.php";
     require_once 'mysqlconfig.php';
     $ma1 = new DB();
-    $link = $ma1->connect();
-    $sql = "insert into tbl_ms1 (user,title,author,ip,liuyan,time) values('$id','$title','$author','$ip','$content',now())";
+    $link = $ma1 -> connect();
+    $sql = "insert into tbl_ms1 (user, title, author, ip, message, time) values('$id', '$title', '$author', '$ip', '$content' ,now())";
     if ($title != null) {
         if ($author != null) {
-            $res = $ma1->insertl($link, $sql);
+            $res = $ma1 -> insertl($link, $sql);
         };
         if ($author == null) {
-            echo "<script>alert('請輸入留言者！');location='add.php';</script>";
+            echo "<script>alert('請輸入留言者！'); location = 'add.php'; </script>";
         };
     };
     if ($title == null) {
-        echo "<script>alert('請輸入留言標題！');location='add.php';</script>";
+        echo "<script>alert('請輸入留言標題！'); location = 'add.php'; </script>";
     };
-?>

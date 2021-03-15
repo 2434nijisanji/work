@@ -1,7 +1,6 @@
 <?php  
-    define('DB_HOST', 'localhost');  
-    define('DB_USER', 'root');  
-    define('DB_PWD', '17Bdda7');  //我資料庫密碼
-    define('DB_CHARSET', 'UTF8');  
-    define('DB_DBNAME', 'my1');  
-?>
+    define('Host', 'localhost');  
+    define('User', 'root');  
+    define('Password', 'YiUMq6P1D8e1HU7I');
+    define('Charset', 'UTF8');  
+    define('Name', 'my1');
