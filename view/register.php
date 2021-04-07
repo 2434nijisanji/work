@@ -40,7 +40,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <input type="button" name='zu' value='登入' onclick="location.href = '../view/index.php'" class="btn">
+                                    <input type="button" name='zu' value='登入' onclick="location.href = '../view/login.php'" class="btn">
                                     <input type="reset" name="zu" value="重置" class="btn">
                                     <input type="submit" name="zu" value="註冊" class="btn">
                                 </td>

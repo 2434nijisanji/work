@@ -4,8 +4,9 @@
     "description": "留言板啦",
     "autoload": {
         "psr-4": {
-            "App\\" : "src",
-            "Infra\\": "infra"
+            "Act\\" : "act",
+            "Database\\": "database",
+            "View\\": "view"
         }
     }
 }

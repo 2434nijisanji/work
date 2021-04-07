@@ -1,25 +1,27 @@
 <?php
-class DB
+class Database
 {
     function connect()
     {
         @$link = mysqli_connect("localhost","my_user","my_password","test");
-        @$link = mysqli_connect(Host, User, Password); 
-        $coo = mysqli_set_charset($link, Charset); 
-        $coo = mysqli_select_db($link, Name) or die('資料庫開啟失敗'); 
+        @$link = mysqli_connect(Host, User, Password);
+        $coo = mysqli_set_charset($link, Charset);
+        $coo = mysqli_select_db($link, Name) or die('資料庫開啟失敗');
         if (mysqli_connect_errno()) {
             die('資料庫連線失敗 : ' . mysqli_connect_errno());
         }
         return $link;
     }
+
     function insert($link, $sql)
     {
         if (mysqli_query($link, $sql)) {
-            echo "<script language = 'javascript'> alert('註冊成功!'); location = '../view/index.php'; </script>";
+            echo "<script language = 'javascript'> alert('註冊成功!'); location = '../index.php'; </script>";
         } else {
-            echo "Error insert data: " . $link -> error;
+            echo "Error insert data: " . $link->error;
         }
     }
+
     function CheckUser($link, $sql)
     {
         $result = mysqli_query($link, $sql);
@@ -30,14 +32,16 @@ class DB
             return false;
         }
     }
+
     function insertl($link, $sql)
     {
         if (mysqli_query($link, $sql)) {
-            echo "<script language = 'javascript'> alert('留言成功!'); location = '../view/show.php'; </script>";
+            echo "<script language = 'javascript'> alert('留言成功!'); location = '../index.php'; </script>";
         } else {
             echo "Error insert data: " . $link -> error;
         }
     }
+    
     function print1($link, $sql)
     {
         $result = mysqli_query($link, $sql);
