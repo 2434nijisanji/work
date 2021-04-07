@@ -32,4 +32,4 @@ if (session_id() != $sessin_id) {
 echo "<script>
         alert('歡迎您：' . $username);
         location = '../view/addmessage.php';
-    </script>";
+</script>";

@@ -23,6 +23,7 @@ if ($title != null) {
         echo "<script>alert('請輸入留言者！'); location = '../view/addmessage.php'; </script>";
     };
 };
+
 if ($title == null) {
     echo "<script>alert('請輸入留言標題！'); location = '../view/addmessage.php'; </script>";
 };

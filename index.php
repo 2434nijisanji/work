@@ -4,7 +4,7 @@
     <title>我的留言板.檢視留言</title>
 </head>
 
-<body style="background-size: cover; background-attachment: fixed;">
+<body style = "background-size: cover; background-attachment: fixed;">
     <div>
         <h2>我的留言板</h2>
         <input type = "button" value = "新增留言" onclick = "location.href = 'act/checklogin.php'" class = " button">
@@ -73,7 +73,7 @@
     echo "<br>";
     echo "</div>";
     ?>
-    <script type="text/javascript">
+    <script type = "text/javascript">
         function logout() {
             session.invalidate();
         }
