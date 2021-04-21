@@ -23,7 +23,7 @@ $sessin_id = file_get_contents('session_id/' . $username);
 if (session_id() != $sessin_id) {
     unset($_SESSION['username']);
     echo "<script>
-        alert(您已在別處登入， 請重新登入);
+        alert(您已在別處登入，請重新登入);
         location = '../view/login.php';
     </script>";
     exit();

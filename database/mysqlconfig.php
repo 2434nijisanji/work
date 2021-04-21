@@ -16,7 +16,7 @@ class Database
     function insert($link, $sql)
     {
         if (mysqli_query($link, $sql)) {
-            echo "<script language = 'javascript'> alert('註冊成功!'); location = '../index.php'; </script>";
+            echo "<script language = 'javascript'> alert('註冊成功!'); location = '../view/index2.php'; </script>";
         } else {
             echo "Error insert data: " . $link->error;
         }
@@ -36,7 +36,7 @@ class Database
     function insertl($link, $sql)
     {
         if (mysqli_query($link, $sql)) {
-            echo "<script language = 'javascript'> alert('留言成功!'); location = '../index.php'; </script>";
+            echo "<script language = 'javascript'> alert('留言成功!'); location = '../view/index2.php'; </script>";
         } else {
             echo "Error insert data: " . $link -> error;
         }

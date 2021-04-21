@@ -7,8 +7,9 @@
 <body style="background-size: cover; background-attachment: fixed;">
     <div>
         <h2>我的留言板</h2>
-        <input type = "button" value = "新增留言" onclick = "location.href = 'act/checklogin.php'" class = " button">
-        <input type = "button" value = "檢視留言" onclick = "location.href = 'index.php'" class = "button">
+        <input type = "button" value = "新增留言" onclick = "location.href = 'addmessage.php'" class = " button">
+        <input type = "button" value = "檢視留言" onclick = "location.href = 'index2.php'" class = "button">
+        <input type = "button" value = "退出登入" onclick = "location.href = 'view/login.php'; logout()" class = "button">
         <a href = "view/register.php" class = "btn btn-info" role = "button" style = "float: right;">註冊</a>
         <h7 style = " float: right;">|</h7>
         <a href = "view/login.php" class = "btn btn-info" role = "button" style = 'float: right;'>登入</a>
@@ -41,7 +42,7 @@
         echo "<div class = 'ds-post-main'>";
         echo "<div class = 'ds-comment-body'>
             <span>{$res['author']}  於  {$res['time']}  給我留言</span>
-            <span style = 'float: right'><a href = 'view/checkdelete.php'><input type='submit' class = 'button1' value = '刪除'></input></a></span>
+            <span style = 'float: right'><a href = 'checkdelete.php'><input type='submit' class = 'button1' value = '刪除'></input></a></span>
             <p>留言主題 : {$res['title']}</span></p>
             <hr width = 450px> 
             <p>{$res['message']}</p></div><br>";
