@@ -1,9 +1,10 @@
 <?php
+
 class Database
 {
     function connect()
     {
-        @$link = mysqli_connect("localhost","my_user","my_password","test");
+        @$link = mysqli_connect("localhost", "my_user", "my_password", "my1");
         @$link = mysqli_connect(Host, User, Password);
         $coo = mysqli_set_charset($link, Charset);
         $coo = mysqli_select_db($link, Name) or die('資料庫開啟失敗');
@@ -15,10 +16,14 @@ class Database
 
     function insert($link, $sql)
     {
-        if (mysqli_query($link, $sql)) {
-            echo "<script language = 'javascript'> alert('註冊成功!'); location = '../view/index2.php'; </script>";
+        if (mysqli_query($link, $sql)) { ?>
+            <script>
+                alert('註冊成功!');
+                location = '../view/showmessage.php'
+            </script>
+        <?php
         } else {
-            echo "Error insert data: " . $link->error;
+            echo "Error insert data: " . $link -> error;
         }
     }
 
@@ -35,13 +40,17 @@ class Database
 
     function insertl($link, $sql)
     {
-        if (mysqli_query($link, $sql)) {
-            echo "<script language = 'javascript'> alert('留言成功!'); location = '../view/index2.php'; </script>";
+        if (mysqli_query($link, $sql)) { ?>
+            <script>
+                alert('留言成功!');
+                location = '../view/showmessage.php'
+            </script>
+        <?php
         } else {
-            echo "Error insert data: " . $link -> error;
+            echo "Error insert data: " . $link->error;
         }
     }
-    
+
     function print1($link, $sql)
     {
         $result = mysqli_query($link, $sql);
