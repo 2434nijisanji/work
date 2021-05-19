@@ -1,5 +1,4 @@
 <?php
-
 define('Host', 'localhost');
 define('User', 'root');
 define('Password', 'YiUMq6P1D8e1HU7I');
