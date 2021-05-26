@@ -20,7 +20,7 @@ echo "</div>";
     <div>
         <input type = "button" value = "新增留言" onclick = "location.href = '../act/checklogin.php'" class = "button">
         <input type = "button" value = "檢視留言" onclick = "location.href = 'showmessage.php'" class = "button">
-        <input type = "button" value = "登出" onclick = "location.href = '../act/logout.php'" class = "button" style = "float: right">
+        <input type = "button" value = "登出" onclick = "location.href = 'logout.php'" class = "button" style = "float: right">
         <hr width = "100%">
     </div>
 

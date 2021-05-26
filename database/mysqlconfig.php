@@ -19,7 +19,7 @@ class Database
         if (mysqli_query($link, $sql)) { ?>
             <script>
                 alert('註冊成功!');
-                location = '../view/showmessage.php'
+                location = '../view/finishregister.php'
             </script>
         <?php
         } else {
