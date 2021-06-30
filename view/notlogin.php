@@ -7,8 +7,6 @@ require_once "../database/connet.php";
 require_once '../database/mysqlconfig.php';
 
 $id_ = $_GET['id'];
-$_SESSION['num'] = $id_;
-$id = $_SESSION['uid'];
 
 $database = new Database();
 $link = $database->connect();
@@ -87,44 +85,28 @@ $result_2 = mysqli_query($con, $query_sql_2);
                 <div class = "col-6">
                     <div class = "ui container segment" style = "background-color:#272727; margin-bottom: 0px;">
                         <h1 style = "color: white;"><?php echo $res['title']?></h1>
-                        <p style = "color: royalblue;">樓主:<?php echo $res['author']?>&nbsp&nbsp<?php echo $res['user']?></p>
+                        <p style = "color: white;">樓主:<?php echo $res['author']?>&nbsp&nbsp<?php echo $res['user']?></p>
                         <p style = "color: white;"><?php echo $res['time']?></p>
                         <br>
                         <br>
                         <br>
                         <p style = "color: white;"><?php echo $res['message']?></p>
-                        <button class = "ui inverted orange icon button" onclick="push()">
+                        <button class = "ui inverted orange icon button">
                             <i class = "thumbs up icon"></i>
                         </button>
-                        <button class = "ui inverted blue icon button" onclick="">
+                        <button class = "ui inverted blue icon button">
                             <i class = "thumbs down icon"></i>
                         </button>
-                        <?php
-                        if ($res['user'] == $id) {
-                        ?>
-                            <a href = "checkdelete.php?id=<?php echo $res['id']?>" class = "item" style = "float: right;">
-                                <div class = "ui inverted right icon input" style = "color:white;">
-                                    <button class = "small red ui button">刪除文章</button>
-                                </div>
-                            </a>
-                            <a href = "updatemessage.php?id=<?php echo $res['id']?>" class = "item" style = "float: right;">
-                                <div class = "ui inverted right icon input" style = "color:white;">
-                                    <button class = "small yellow ui button">編輯文章</button>
-                                </div>
-                            </a>
-                        <?php
-                        }
-                        ?>
                     </div>
                     <div style = 'margin-top:0px'>
-                        <table class = "ui inverted unstackable table">
+                        <table class = "ui inverted grey unstackable table">
                             <tbody>
                                 <?php
                                 while ($res_2 = mysqli_fetch_array($result_2)) {
                                     ?>
                                     <tr>
                                         <td>
-                                            <p style = "color: royalblue"><?php echo $res_2['uid'] ?></p>
+                                            <p><?php echo $res_2['uid'] ?></p>
                                         </td>
                                         <td>
                                             <p><?php echo $res_2['comment'] ?></p>
@@ -140,15 +122,14 @@ $result_2 = mysqli_query($con, $query_sql_2);
                         </table>
                     </div>
                     <div class = "ui container segment" style = "background-color:#383838; margin-top: 0px;">
-                        
-                        <form action = "../act/doaddcomment.php" method = "post">
-                            <div>
-                                <input type = "submit" value = "提交" class = "submit">
-                            </div>
-                            <label>
-                                <input type = "text" name = "comment" size = "65" style = "height: 35;" placeholder = "留言...">
-                            </label>
-                        </form>
+                        <form action = "../act/checklogin.php" method = "post">
+                                <div>
+                                    <input type = "submit" value = "提交" class = "submit">
+                                </div>
+                                <label>
+                                    <input type = "text" name = "title" size = "65" style = "height: 35;" placeholder = "留言...">
+                                </label>
+                            </form>
                     </div>
                 </div>
                 <div class = "col-3">
@@ -172,7 +153,7 @@ $result_2 = mysqli_query($con, $query_sql_2);
         </div>
     </div>
     <div style = "top: 0px; position:fixed; width:100%;">
-        <div class = "ui teal inverted menu"  style = "margin-bottom: 0px;">
+        <div class = "ui teal inverted menu" style = "margin-bottom: 0px;">
             <div class = "ui container">
                 <img img class = "img-fluid" src = "https://i2.bahamut.com.tw/top_logo.svg" alt = "Logo" style = "width:100px;">
                 <a href = "#" class = "item">
@@ -181,46 +162,29 @@ $result_2 = mysqli_query($con, $query_sql_2);
                         <i class = "search link icon"></i>
                     </div>
                 </a>
-                <div class = "ui teal right icon inverted menu">
-                    <a class = "item">
-                        <i class = "volume up link icon"></i>
-                    </a>
-                    <a class = "item">
-                        <i class = "rss square link icon"></i>
-                    </a>
-                    <a class = "item">
-                        <i class = "thumbs up link icon"></i>
-                    </a>
-                    <a class = "item">
-                        <i class = "comment link icon"></i>
-                    </a>
-                    <a class = "item">
-                        <i class = "envelope link icon"></i>
-                    </a>
-                    <a class = "item">
-                        <i class = "tags link icon"></i>
-                    </a>
-                    <a class = "item">
-                        <i class = "circle link icon"></i>
-                        <i class = "large angle down link icon"></i>
-                    </a>
-                    <a class = "item">
-                        <i class = "large bars link icon"></i>
-                    </a>
-                </div>
-                <div class = "dropdown">
-                    <button type = "button" class = "btn btn-light dropdown-toggle" data-toggle = "dropdown"></button>
-                    <div class = "dropdown-menu">
-                        <a class = "dropdown-item" href = "logout.php">登出</a>
+                <a class = "item right aligned">
+                    <i class = "question circle link icon"></i>
+                </a>
+                <a href = "login.php" class = "item">
+                    <div class = "ui inverted right icon input" style = "color:white;">
+                        <p>我要登入</p>
                     </div>
-                </div>
+                </a>
+                <a href = "register.php" class = "item">
+                    <div class = "ui inverted right icon input" style = "color:white;">
+                        <p>註冊</p>
+                    </div>
+                </a>
+                <a class = "item">
+                    <i class = "bars link icon"></i>
+                </a>
             </div>
         </div>
         <div class = "ui blue inverted menu" style = "margin-top: 0px;">
             <div class = "container">
                 <a class = "nav-link" style = "color: white;" href = "#"><b>哈啦區</b></a>
                 <a class = "nav-link" style = "color: white;" href = "#"><b>場外休憩區</b></a>
-                <a class = "nav-link" style = "color: white;" href = "alltitle.php"><b>文章列表</b></a>
+                <a class = "nav-link" style = "color: white;" href = "../index.php"><b>文章列表</b></a>
                 <a class = "nav-link" style = "color: white;" href = "#"><b>精華區</b></a>
                 <a class = "nav-link" style = "color: white;" href = "#"><b>版規</b></a>
                 <a class = "nav-link" style = "color: white;" href = "#"><b>水桶</b></a>
@@ -238,7 +202,6 @@ $result_2 = mysqli_query($con, $query_sql_2);
             </div>
         </div>
     </div>
-    
 </body>
 
 </html>

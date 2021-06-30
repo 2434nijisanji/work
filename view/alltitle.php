@@ -2,6 +2,7 @@
 
 session_start();
 
+$id = $_SESSION['uid'];
 $con = @mysqli_connect("127.0.0.1", "root", "YiUMq6P1D8e1HU7I", "my1");
 if (!$con) {
     die("資料庫連線錯誤" . mysqli_connect_error());
@@ -29,28 +30,31 @@ $result = mysqli_query($con, $query_sql);
     <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href = "css/index.css" rel = "stylesheet" />
 
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/reset.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/site.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/reset.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/site.css">
 
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/container.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/grid.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/header.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/image.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/menu.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/table.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/container.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/grid.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/header.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/image.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/menu.css">
 
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/divider.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/segment.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/form.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/input.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/button.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/list.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/message.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/icon.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/divider.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/table.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/dropdown.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/segment.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/form.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/input.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/button.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/list.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/message.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/icon.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/transition.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/popup.css">
 
-    <script src = "assets/library/jquery.min.js"></script>
-    <script src = "dist/components/form.js"></script>
-    <script src = "dist/components/transition.js"></script>
+    <script src = "../assets/library/jquery.min.js"></script>
+    <script src = "../dist/components/form.js"></script>
+    <script src = "../dist/components/transition.js"></script>
     <script src = "https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src = "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -74,7 +78,8 @@ $result = mysqli_query($con, $query_sql);
 </head>
 
 <body>
-    <div class = "container" style = "top: 120px; position:relative;">
+    
+    <div class = "container"  style = "top: 120px; position:relative;">
         <div class = "row">
             <div class = "col-9">
                 <marquee scrollamount = "3" style = "color:red;font-size:50">場外ㄈㄓ們通通聯合起來抗疫！做好防疫措施、不任意猜測或轉傳未經證實的疫情資訊，場外小組關心您</marquee>
@@ -92,7 +97,7 @@ $result = mysqli_query($con, $query_sql);
                             <?php
                             } else {
                                 ?>
-                                <a href = "index.php?p=<?php echo $i?>"><div style = 'text-align:center;width:15px; display: inline-block; margin-right: 10px; background: #272727'> <?php echo $i ?></div></a>
+                                <a href = "alltitle.php?p=<?php echo $i?>"><div style = 'text-align:center;width:15px; display: inline-block; margin-right: 10px; background: #272727'> <?php echo $i ?></div></a>
                             <?php
                             }
                         }
@@ -132,17 +137,17 @@ $result = mysqli_query($con, $query_sql);
                                 ?>
                                 <tr>
                                     <td>
-                                        <a href = "view/notlogin.php?id=<?php echo $res['id'] ?>" style = "color:white;">
+                                        <a href = "showmessage.php?id=<?php echo $res['id'] ?>" style = "color:white;">
                                         <?php echo $res['title'] ?>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href = "view/notlogin.php?id=<?php echo $res['id'] ?>" style = "color:white;">
+                                        <a href = "showmessage.php?id=<?php echo $res['id'] ?>" style = "color:white;">
                                             <?php echo $res['author'] ?>
                                         </a>
                                     </td>
                                     <td class = "right aligned">
-                                        <a href = "view/notlogin.php?id=<?php echo $res['id'] ?>"  style = "color:white;">
+                                        <a href = "showmessage.php?id=<?php echo $res['id'] ?>"  style = "color:white;">
                                             <?php echo $res['time'] ?>
                                         </a>
                                     </td>
@@ -167,7 +172,7 @@ $result = mysqli_query($con, $query_sql);
                             <?php
                             } else {
                                 ?>
-                                <a href = "index.php?p=<?php echo $i?>"><div style = 'text-align:center;width:15px; display: inline-block; margin-right: 10px; background: #272727'> <?php echo $i ?></div></a>
+                                <a href = "alltitle.php?p=<?php echo $i?>"><div style = 'text-align:center;width:15px; display: inline-block; margin-right: 10px; background: #272727'> <?php echo $i ?></div></a>
                             <?php
                             }
                         }
@@ -180,7 +185,7 @@ $result = mysqli_query($con, $query_sql);
                         <img class = "img-fluid" src = "https://avatar2.bahamut.com.tw/avataruserpic/e/d/edfrmpc44ic/edfrmpc44ic_s.png">
                         <img class = "img-fluid" src = "https://avatar2.bahamut.com.tw/avataruserpic/y/u/yunski/yunski_s.png">
                         <img class = "img-fluid" src = "https://avatar2.bahamut.com.tw/avataruserpic/j/o/johnny860726/johnny860726_s.png">
-                        <hr  style='background-color:grey;' width = 100%>
+                        <hr  style = 'background-color:grey;' width = 100%>
                         <img class = "img-fluid" src = "https://p2.bahamut.com.tw/B/GUILD/f/8/0000006458.PNG">
                         <p>
                             7971 筆精華，前天 更新
@@ -189,15 +194,15 @@ $result = mysqli_query($con, $query_sql);
                         </p>
                     </span>
                 </div>
-                <img class = "img-fluid" src = "pic/index-6.jpg">
-                <img class = "img-fluid" src = "pic/index-3.jpg">
-                <img class = "img-fluid" src = "pic/index-4.jpg">
-                <img class = "img-fluid" src = "pic/index-5.jpg">
+                <img class = "img-fluid" src = "../pic/index-6.jpg">
+                <img class = "img-fluid" src = "../pic/index-3.jpg">
+                <img class = "img-fluid" src = "../pic/index-4.jpg">
+                <img class = "img-fluid" src = "../pic/index-5.jpg">
             </div>
         </div>
     </div>
     <div style = "top: 0px; position:fixed; width:100%;">
-        <div class = "ui teal inverted menu" style = "margin-bottom: 0px;">
+        <div class = "ui teal inverted menu"  style = "margin-bottom: 0px;">
             <div class = "ui container">
                 <img img class = "img-fluid" src = "https://i2.bahamut.com.tw/top_logo.svg" alt = "Logo" style = "width:100px;">
                 <a href = "#" class = "item">
@@ -206,29 +211,46 @@ $result = mysqli_query($con, $query_sql);
                         <i class = "search link icon"></i>
                     </div>
                 </a>
-                <a class = "item right aligned">
-                    <i class = "question circle link icon"></i>
-                </a>
-                <a href = "view/login.php" class = "item">
-                    <div class = "ui inverted right icon input" style = "color:white;">
-                        <p>我要登入</p>
+                <div class = "ui teal right icon inverted menu">
+                    <a class = "item">
+                        <i class = "volume up link icon"></i>
+                    </a>
+                    <a class = "item">
+                        <i class = "rss square link icon"></i>
+                    </a>
+                    <a class = "item">
+                        <i class = "thumbs up link icon"></i>
+                    </a>
+                    <a class = "item">
+                        <i class = "comment link icon"></i>
+                    </a>
+                    <a class = "item">
+                        <i class = "envelope link icon"></i>
+                    </a>
+                    <a class = "item">
+                        <i class = "tags link icon"></i>
+                    </a>
+                    <a class = "item">
+                        <i class = "circle link icon"></i>
+                        <i class = "large angle down link icon"></i>
+                    </a>
+                    <a class = "item">
+                        <i class = "large bars link icon"></i>
+                    </a>
+                </div>
+                <div class = "dropdown">
+                    <button type = "button" class = "btn btn-light dropdown-toggle" data-toggle = "dropdown"></button>
+                    <div class = "dropdown-menu">
+                        <a class = "dropdown-item" href = "logout.php">登出</a>
                     </div>
-                </a>
-                <a href = "view/register.php" class = "item">
-                    <div class = "ui inverted right icon input" style = "color:white;">
-                        <p>註冊</p>
-                    </div>
-                </a>
-                <a class = "item">
-                    <i class = "bars link icon"></i>
-                </a>
+                </div>
             </div>
         </div>
         <div class = "ui blue inverted menu" style = "margin-top: 0px;">
             <div class = "container">
                 <a class = "nav-link" style = "color: white;" href = "#"><b>哈啦區</b></a>
                 <a class = "nav-link" style = "color: white;" href = "#"><b>場外休憩區</b></a>
-                <a class = "nav-link" style = "color: white;" href = "index.php"><b>文章列表</b></a>
+                <a class = "nav-link" style = "color: white;" href = "alltitle.php"><b>文章列表</b></a>
                 <a class = "nav-link" style = "color: white;" href = "#"><b>精華區</b></a>
                 <a class = "nav-link" style = "color: white;" href = "#"><b>版規</b></a>
                 <a class = "nav-link" style = "color: white;" href = "#"><b>水桶</b></a>
@@ -238,7 +260,7 @@ $result = mysqli_query($con, $query_sql);
                 <a class = "item">
                     <i class = "inverted ellipsis horizontal link icon"></i>
                 </a>
-                <a href = "act/checklogin.php" class = "item">
+                <a href = "../act/checklogin.php" class = "item">
                     <div class = "ui inverted right icon input" style = "color:white;">
                         <button class = "small pink ui button">發文</button>
                     </div>
