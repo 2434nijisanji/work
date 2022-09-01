@@ -84,19 +84,19 @@ $result = mysqli_query($con, $query_sql);
 
                     $pagenum = ceil($count_array['count'] / $pagesize);
 
-                    if ($pagenum >= 1) {
-                        for ($i = 1; $i <= $pagenum; $i++) {
-                            if ($i == $p) {
-                                ?>
+                if ($pagenum >= 1) {
+                    for ($i = 1; $i <= $pagenum; $i++) {
+                        if ($i == $p) {
+                            ?>
                                 <div style = 'text-align:center;background: #00E3E3; width: 15px; display: inline-block; margin-right: 10px;'> <?php echo $i ?></div>
                             <?php
-                            } else {
-                                ?>
+                        } else {
+                            ?>
                                 <a href = "index.php?p=<?php echo $i?>"><div style = 'text-align:center;width:15px; display: inline-block; margin-right: 10px; background: #272727'> <?php echo $i ?></div></a>
                             <?php
-                            }
                         }
                     }
+                }
                 ?>
                 <br>
                 <br>
@@ -147,7 +147,7 @@ $result = mysqli_query($con, $query_sql);
                                         </a>
                                     </td>
                                 </tr>    
-                            <?php
+                                <?php
                             }
                             ?>
                         </tbody>
@@ -159,19 +159,19 @@ $result = mysqli_query($con, $query_sql);
 
                     $pagenum = ceil($count_array['count'] / $pagesize);
 
-                    if ($pagenum >= 1) {
-                        for ($i = 1; $i <= $pagenum; $i++) {
-                            if ($i == $p) {
-                                ?>
+                if ($pagenum >= 1) {
+                    for ($i = 1; $i <= $pagenum; $i++) {
+                        if ($i == $p) {
+                            ?>
                                 <div style = 'text-align:center;background: #00E3E3; width: 15px; display: inline-block; margin-right: 10px;'> <?php echo $i ?></div>
                             <?php
-                            } else {
-                                ?>
+                        } else {
+                            ?>
                                 <a href = "index.php?p=<?php echo $i?>"><div style = 'text-align:center;width:15px; display: inline-block; margin-right: 10px; background: #272727'> <?php echo $i ?></div></a>
                             <?php
-                            }
                         }
                     }
+                }
                 ?>
             </div>
             <div class = "col-3">
